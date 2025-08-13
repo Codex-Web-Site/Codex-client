@@ -3,16 +3,17 @@
   "builds": [
     {
       "src": "package.json",
-      "use": "@vercel/node",
+      "use": "@vercel/next",
       "config": {
-        "includeFiles": ["dist/**"]
+        "installCommand": "npm install",
+        "buildCommand": "npm run build"
       }
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/(.*)",
-      "dest": "dist/main.js"
+      "source": "/api/(.*)",
+      "destination": "https://codex-api-jet.vercel.app/api/$1"
     }
   ]
 }
