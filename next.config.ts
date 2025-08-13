@@ -15,7 +15,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/api/:path*',
-        destination: 'http://localhost:3001/api/:path*', // Redirige vers le backend NestJS
+                destination: `${process.env.NEXT_PUBLIC_API_BASE_URL}/:path*`, // Utilise la variable d'environnement // Redirige vers le backend NestJS
       },
     ];
   },

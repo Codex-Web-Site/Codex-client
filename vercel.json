@@ -13,7 +13,7 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "https://codex-api-mfsh.onrender.com/api/$1"
+      "destination": "https://codex-api-jet.vercel.app/api/$1"
     }
   ]
 }
