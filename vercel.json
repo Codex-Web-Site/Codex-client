@@ -2,19 +2,9 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/package.json",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": ["dist/**"],
-        "installCommand": "npm install",
-        "buildCommand": "npm run build"
-      }
-    },
-    {
-      "src": "client/package.json",
+      "src": "package.json",
       "use": "@vercel/next",
       "config": {
-        "distDir": ".next",
         "installCommand": "npm install",
         "buildCommand": "npm run build"
       }
@@ -23,11 +13,7 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "/api/src/main.ts"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/client/$1"
+      "destination": "https://codex-api-mfsh.onrender.com/api/$1"
     }
   ]
 }
