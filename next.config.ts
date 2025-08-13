@@ -1,5 +1,13 @@
 import type { NextConfig } from "next";
 
+// Déclaration pour TypeScript
+declare const process: {
+  env: {
+    [key: string]: string | undefined;
+    NEXT_PUBLIC_API_URL?: string;
+  };
+};
+
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
@@ -15,7 +23,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/api/:path*',
-                destination: `${process.env.NEXT_PUBLIC_API_BASE_URL}/:path*`, // Utilise la variable d'environnement // Redirige vers le backend NestJS
+        destination: `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001'}/:path*`,
       },
     ];
   },
